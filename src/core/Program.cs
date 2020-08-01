@@ -13,7 +13,10 @@ namespace spotify.core
             Host.CreateDefaultBuilder(args)
                 .ConfigureHostConfiguration(x => 
                     x.AddEnvironmentVariables())
-                .ConfigureWebHostDefaults(webBuilder => 
-                    webBuilder.UseStartup<Startup>());
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseUrls("http://localhost:12903", "https://localhost:12904");
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
