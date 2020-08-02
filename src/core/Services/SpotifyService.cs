@@ -1,4 +1,4 @@
-namespace spotify.services
+﻿namespace spotify.services
 {
     using System;
     using System.Collections.Generic;
@@ -55,13 +55,13 @@ namespace spotify.services
                     .PostAsync(new FormUrlEncodedContent(form))
                     .ReceiveJson<TokenData>();
 
-                var updateFields = new Dictionary<string, object>
-                {
-                    {"access_token", result.access_token}, 
-                    {"expires_in", result.expires_in}
-                };
+                token.access_token = result.access_token;
+                token.expires_in = result.expires_in;
 
-                await firestore.Cache.Document("auth").UpdateAsync(updateFields);
+                // TODO hmm.. UpdateTime is incorrect working.. 
+                // temporary delete and insert
+                await firestore.Cache.Document("auth").DeleteAsync();
+                await firestore.Cache.Document("auth").SetAsync(token);
             }
         }
     }
