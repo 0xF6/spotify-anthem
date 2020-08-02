@@ -94,9 +94,10 @@ namespace spotify.controllers
             
             return Ok();
         }
-        public string GetRedirectUrl() =>
+        [NonAction]
+        private string GetRedirectUrl() =>
             _config["CallbackUrl"];
-
+        [NonAction]
         private long GetAfterMarkerTime() =>
             (long)(DateTime.UtcNow.AddDays(-1).Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
     }
