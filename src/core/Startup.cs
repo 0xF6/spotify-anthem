@@ -4,7 +4,7 @@ namespace spotify.core
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Services;
+    using services;
 
     public class Startup
     {
