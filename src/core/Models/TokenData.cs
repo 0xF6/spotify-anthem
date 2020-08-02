@@ -17,9 +17,9 @@
         [FirestoreProperty]
         public int expires_in { get; set; }
 
-        [FirestoreDocumentUpdateTimestamp]
-        public Timestamp UpdateTime { get; set; }
+        [FirestoreDocumentCreateTimestamp]
+        public Timestamp CreatedTime { get; set; }
         public bool IsExpired() => 
-            expires_in - Math.Abs((DateTimeOffset.UtcNow - UpdateTime.ToDateTimeOffset()).TotalSeconds) < 0;
+            expires_in - Math.Abs((DateTimeOffset.UtcNow - CreatedTime.ToDateTimeOffset()).TotalSeconds) < 0;
     }
 }

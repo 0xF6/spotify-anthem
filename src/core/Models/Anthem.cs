@@ -19,12 +19,12 @@
         [FirestoreProperty]
         public string ImageUrl { get; set; }
 
-        [FirestoreDocumentUpdateTimestamp]
-        public Timestamp UpdateTime { get; set; }
+        [FirestoreDocumentCreateTimestamp]
+        public Timestamp CreatedTime { get; set; }
 
         // current anthem expired after 6 hours
         public bool IsExpired() => 
-            TimeSpan.FromHours(6).TotalSeconds - Math.Abs((DateTimeOffset.UtcNow - UpdateTime.ToDateTimeOffset()).TotalSeconds) < 0;
+            TimeSpan.FromHours(6).TotalSeconds - Math.Abs((DateTimeOffset.UtcNow - CreatedTime.ToDateTimeOffset()).TotalSeconds) < 0;
 
         public static Anthem From(FullTrack track) =>
             new Anthem
