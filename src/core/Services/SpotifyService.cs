@@ -1,4 +1,4 @@
-﻿namespace spotify.services
+namespace spotify.services
 {
     using System;
     using System.Collections.Generic;
@@ -16,7 +16,7 @@
         {
             if (services == null)
                 throw new ArgumentNullException(nameof (services));
-            services.AddScoped(Factory);
+            services.AddScoped<SpotifyClient>(x => Factory(x).Result);
             return services;
         }
 
