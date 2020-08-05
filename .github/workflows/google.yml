@@ -1,0 +1,37 @@
+name: Build and Deploy to GKE
+on:
+  push:
+    branches: [ master ]
+env:
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GKE_ZONE: europe-north1
+  GKE_REGION: europe-north1
+  IMAGE: ivy-run-console
+  REGISTRY_HOSTNAME: gcr.io
+  DEPLOYMENT_NAME: ivy-run-console
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '288.0.0'
+        service_account_email: ${{ secrets.GKE_EMAIL }}
+        service_account_key: ${{ secrets.GKE_KEY }}
+        project_id: ${{ secrets.GKE_PROJECT }}
+    - run: |
+        gcloud auth configure-docker
+    - name: Build
+      working-directory: ./src
+      run: |
+        gcloud builds submit --tag "$REGISTRY_HOSTNAME"/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA"
+    - name: Deploy
+      working-directory: ./src
+      run: |
+        gcloud run deploy "$DEPLOYMENT_NAME" --image "$REGISTRY_HOSTNAME"/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --platform managed --region "$GKE_REGION" --allow-unauthenticated --update-env-vars ${{ secrets.GKE_ENV_VARS }}
+
