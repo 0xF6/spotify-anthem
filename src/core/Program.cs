@@ -16,14 +16,20 @@ namespace spotify.core
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureHostConfiguration(x => 
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            var port = Environment.GetEnvironmentVariable("PORT");
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureHostConfiguration(x =>
                     x.AddEnvironmentVariables())
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://localhost:12903", "https://localhost:12904");
+                    if (port is null)
+                        webBuilder.UseUrls("http://localhost:12903", "https://localhost:12904");
+                    else
+                        webBuilder.UseUrls($"http://*.*.*.*:{port}"); // for docker and gke
                     webBuilder.UseStartup<Startup>();
                 });
+        }
     }
 }
