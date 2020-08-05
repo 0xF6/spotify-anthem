@@ -8,9 +8,9 @@ env:
   GITHUB_SHA: ${{ github.sha }}
   GKE_ZONE: europe-north1
   GKE_REGION: europe-north1
-  IMAGE: ivy-run-console
+  IMAGE: spotify-anthem
   REGISTRY_HOSTNAME: gcr.io
-  DEPLOYMENT_NAME: ivy-run-console
+  DEPLOYMENT_NAME: spotify-anthem
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
