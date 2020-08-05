@@ -5,6 +5,7 @@
     <UserSecretsId>7f02ae58-5358-45f0-965a-87bdd0e4cc54</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <AssemblyName>spotify-anthem</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
