@@ -34,6 +34,17 @@
   </a>
 </p>
 
+## 🧬 Roadmap
+
+- Documentation
+- Improved API for the widget
+- Build HTML directly from JS code
+- Landing page
+- Personal account
+    - Authorization
+    - Connect your spotify account
+    - Getting the anthem by token
+
 
 # 📦 Deploy self-hosted   
 `// TODO` 
