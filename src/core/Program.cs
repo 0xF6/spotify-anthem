@@ -7,14 +7,8 @@ namespace spotify.core
 
     public class Program
     {
-        public static void Main(string[] args)
-        {
-            // TODO
-            // temporary
-            if (Environment.GetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS") is null)
-                throw new Exception();
-            CreateHostBuilder(args).Build().Run();
-        }
+        public static void Main(string[] args) 
+            => CreateHostBuilder(args).Build().Run();
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
