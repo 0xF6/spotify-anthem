@@ -45,8 +45,8 @@
     - Getting the anthem by token
 
 
-# 📦 Deploy self-hosted   
+## 📦 Deploy self-hosted   
 `// TODO` 
 
-# ⚡️ API    
+## ⚡️ API    
 `// TODO` 
