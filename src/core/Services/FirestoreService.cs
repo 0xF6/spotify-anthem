@@ -8,7 +8,7 @@
         private FirestoreDb db { get; }
 
         public FirestoreService(IConfiguration config) => 
-            db = FirestoreDb.Create(config["DB:ID"]);
+            db = FirestoreDb.Create(config["db_id"]);
 
         public CollectionReference Cache => 
             db.Collection("spotify")
