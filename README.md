@@ -18,7 +18,6 @@
 <p align="center">
   <a href="#">
     <img alr="MIT License" src="http://img.shields.io/:license-MIT-blue.svg">
-    <img alt="Release" src="https://img.shields.io/github/release/0xF6/spotify-anthem.svg">
     <img alt="Status build" src="https://github.com/0xF6/spotify-anthem/workflows/Build%20and%20Deploy%20to%20GKE/badge.svg?branch=master">
   </a>
   <a href="https://t.me/ivysola">
