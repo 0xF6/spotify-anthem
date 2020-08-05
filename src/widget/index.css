@@ -48,8 +48,9 @@ body {
     position: fixed;
     top: 85%;
     left: 50px;
-    height: 100px;
+    height: 110px;
     z-index: 3;
+    visibility: hidden;
 }
 
 #player-track {
@@ -57,7 +58,7 @@ body {
     top: 0;
     right: 15px;
     left: 15px;
-    padding: 13px 22px 10px 184px;
+    padding: 13px 22px 10px 144px;
     background-color: #fff7f7;
     border-radius: 15px 15px 0 0;
     transition: 0.3s ease top;
@@ -65,7 +66,7 @@ body {
 }
 
 #player-track.active {
-    top: -92px;
+    top: -85px;
 }
 
 #album-name {
@@ -105,7 +106,7 @@ body {
 
 #track-time.active #current-time,
 #track-time.active #track-length {
-    color: #f86d92;
+    color: #31af49;
     background-color: transparent;
 }
 
@@ -153,7 +154,7 @@ body {
     bottom: 0;
     left: 0;
     width: 0;
-    background-color: #fd6d94;
+    background-color: #6dfd88;
     transition: 0.2s ease width;
     z-index: 1;
 }
@@ -232,25 +233,21 @@ body {
 
 #buffer-box {
     position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    height: 13px;
-    color: #1f1f1f;
+    top: 80%;
+    left: 10px;
+    height: 10px;
+    color: #d3d3d3;
     font-size: 13px;
     font-family: Helvetica;
     text-align: center;
     font-weight: bold;
     line-height: 1;
-    padding: 6px;
-    margin: -12px auto 0 auto;
-    background-color: rgba(255, 255, 255, 0.19);
-    opacity: 0;
+    padding: 4px;
+    margin: -5px auto 0 auto;
     z-index: 2;
+    text-decoration: none;
 }
-
-#album-art img,
-#buffer-box {
+#album-art img {
     transition: 0.1s linear all;
 }
 
@@ -262,10 +259,6 @@ body {
     opacity: 0.8;
     filter: blur(2px);
     -webkit-filter: blur(2px);
-}
-
-#album-art.buffering #buffer-box {
-    opacity: 1;
 }
 
 #player-controls {
