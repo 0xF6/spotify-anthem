@@ -27,11 +27,11 @@ jobs:
     - run: |
         gcloud auth configure-docker
     - name: Build
-      working-directory: ./src
+      working-directory: ./src/core
       run: |
         gcloud builds submit --tag "$REGISTRY_HOSTNAME"/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA"
     - name: Deploy
-      working-directory: ./src
+      working-directory: ./src/core
       run: |
         gcloud run deploy "$DEPLOYMENT_NAME" --image "$REGISTRY_HOSTNAME"/"$GKE_PROJECT"/"$IMAGE":"$GITHUB_SHA" --platform managed --region "$GKE_REGION" --allow-unauthenticated --update-env-vars ${{ secrets.GKE_ENV_VARS }}
 
