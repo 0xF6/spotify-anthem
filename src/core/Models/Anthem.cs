@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using Google.Cloud.Firestore;
+    using Newtonsoft.Json;
     using SpotifyAPI.Web;
 
     [FirestoreData]
@@ -18,8 +19,10 @@
         public string PreviewUrl { get; set; }
         [FirestoreProperty]
         public string ImageUrl { get; set; }
-
+        [FirestoreProperty]
+        public string ExternalLink { get; set; }
         [FirestoreDocumentCreateTimestamp]
+        [JsonIgnore]
         public Timestamp CreatedTime { get; set; }
 
         // current anthem expired after 6 hours
@@ -35,7 +38,8 @@
                     .Select(x => x.Name)
                     .Aggregate((x, y) => $"{x} & {y}"),
                 PreviewUrl = track.PreviewUrl,
-                ImageUrl = track.Album.Images.First().Url
+                ImageUrl = track.Album.Images.First().Url,
+                ExternalLink = track.ExternalUrls["spotify"]
             };
     }
 }
