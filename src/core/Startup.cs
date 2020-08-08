@@ -12,6 +12,11 @@ namespace spotify.core
         {
             services.AddScoped<FirestoreService>();
             services.AddSpotify();
+            services.AddCors(x => 
+                x.AddDefaultPolicy(q => q
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin()));
             services.AddControllers()
                 .AddNewtonsoftJson();
         }
@@ -20,11 +25,7 @@ namespace spotify.core
         {
             if (env.IsDevelopment()) 
                 app.UseDeveloperExceptionPage();
-            app.Use((x, y) => // todo, temporary
-            {
-                x.Response.Headers["Access-Control-Allow-Origin"] = "*";
-                return y();
-            });
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

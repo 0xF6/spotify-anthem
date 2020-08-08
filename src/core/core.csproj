@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,6 +6,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
     <AssemblyName>spotify-anthem</AssemblyName>
+    <Version>0.5.12</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,13 @@
     <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="6.0.0-beta.9" />
   </ItemGroup>
-
-
+  <ItemGroup Condition="$(Configuration) == 'Debug'"> 
+    <PackageReference Include="Ivy.Versioning" Version="3.1.0"> 
+      <PrivateAssets>all</PrivateAssets> 
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets> 
+    </PackageReference> 
+  </ItemGroup> 
+  <PropertyGroup Condition="$(Configuration) == 'Debug'">
+    <BumpPatch>true</BumpPatch>
+  </PropertyGroup>
 </Project>
