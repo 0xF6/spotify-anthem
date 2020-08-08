@@ -32,5 +32,8 @@
     "serve": "webpack-dev-server --mode=development",
     "build": "webpack",
     "build:prod": "webpack --config webpack.config.prod.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "5.14.0"
   }
 }
