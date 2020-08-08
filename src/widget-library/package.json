@@ -1,0 +1,36 @@
+{
+  "name": "spotify-anthem",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jquery": "3.5.1",
+    "@types/node": "14.0.27",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "6.0.3",
+    "css-loader": "4.2.1",
+    "cssnano": "4.1.10",
+    "file-loader": "6.0.0",
+    "html-webpack-plugin": "4.3.0",
+    "mini-css-extract-plugin": "0.9.0",
+    "node-sass": "4.14.1",
+    "postcss-cssnext": "3.1.0",
+    "postcss-import": "12.0.1",
+    "postcss-loader": "3.0.0",
+    "sass-loader": "9.0.3",
+    "style-loader": "1.2.1",
+    "sugarss": "2.0.0",
+    "ts-loader": "8.0.2",
+    "tsconfig-paths-webpack-plugin": "3.3.0",
+    "typescript": "3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "3.3.12",
+    "webpack-dev-server": "3.11.0",
+    "webpack-merge": "5.1.1"
+  },
+  "scripts": {
+    "serve": "webpack-dev-server --mode=development",
+    "build": "webpack",
+    "build:prod": "webpack --config webpack.config.prod.js"
+  }
+}
