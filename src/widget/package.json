@@ -1,9 +1,0 @@
-{
-  "name": "widget",
-  "version": "0.0.0",
-  "description": "Widget for the spotify anthem of the day.",
-  "main": "index.js",
-  "repository": "https://github.com/0xF6/spotify-anthem.git",
-  "author": "Yuuki Wesp",
-  "license": "MIT"
-}
