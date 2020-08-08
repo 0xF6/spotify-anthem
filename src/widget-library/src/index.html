@@ -3,15 +3,11 @@
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-        <script src="index.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <link rel="stylesheet" href="index.css">
     </head>
 
     <body>
         <div id="app-cover">
-            <div id="bg-artwork"></div>
-            <div id="bg-layer"></div>
             <div id="player">
                 <div id="player-track">
                     <div id="album-name"></div>
@@ -47,7 +43,9 @@
             </div>
         </div>
         <script>
-            window.harsomtus.init();
+            setTimeout(function() {
+                window.harsomtus.init();
+            }, 500);
         </script>
     </body>
 </html>
