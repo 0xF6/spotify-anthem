@@ -39,12 +39,12 @@ export class Player {
         $(this._audio).on('timeupdate', this.updateCurrTime.bind(this));
 
         setTimeout(function () {
-            $("#player").css("visibility", "visible");
+            $("#spotify-widget-proxy").css("visibility", "visible");
         }, 50);
     }
 
     public setArtworkImage(url: string): void {
-        $("#_1").attr("src", url);
+        $("#albumImage").attr("src", url);
     }
 
 
@@ -203,7 +203,7 @@ export class Player {
         $('#album-name').text(this._track.artistName);
         $('#track-name').text(this._track.name);
         $('#album-art').find('img.active').removeClass('active');
-        $('#_1').addClass('active');
+        $('#albumImage').addClass('active');
     }
 
     private openSpotifyPage(): void {
