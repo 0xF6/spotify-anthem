@@ -19,6 +19,8 @@ namespace spotify.core
                     .AllowAnyOrigin()));
             services.AddControllers()
                 .AddNewtonsoftJson();
+
+            services.AddRazorPages().AddRazorRuntimeCompilation();;
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -28,9 +30,13 @@ namespace spotify.core
             app.UseCors();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseStaticFiles();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
-                endpoints.MapControllers());
+            {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
