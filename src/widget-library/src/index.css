@@ -58,7 +58,7 @@ body {
     top: 0;
     right: 15px;
     left: 15px;
-    padding: 13px 22px 10px 144px;
+    padding: 13px 22px 50px 144px;
     background-color: #fff7f7;
     border-radius: 15px 15px 0 0;
     transition: 0.3s ease top;
@@ -66,7 +66,7 @@ body {
 }
 
 #player-track.active {
-    top: -85px;
+    top: -105px;
 }
 
 #album-name {
