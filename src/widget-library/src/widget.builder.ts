@@ -2,7 +2,9 @@
 const htmlTracks: string = `
 <div id="player-track">
     <div id="album-name"></div>
-    <div id="track-name"></div>
+    <div id="track-container">
+        <div id="track-name"></div>
+    </div>
     <div id="track-time">
         <div id="current-time"></div>
         <div id="track-length"></div>

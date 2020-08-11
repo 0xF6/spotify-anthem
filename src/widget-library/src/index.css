@@ -46,10 +46,30 @@
     font-weight: bold;
 }
 
+@keyframes scrolling-text {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+        transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+}
+
+#track-container {
+    margin: 1rem 0;
+    width: 100%;
+    overflow: hidden;
+    height: 1.1rem;
+}
 #track-name {
+    text-align: center;
     color: #acaebd;
     font-size: 13px;
     margin: 2px 0 13px 0;
+    animation: scrolling-text 16s linear infinite;
 }
 
 #track-time {
