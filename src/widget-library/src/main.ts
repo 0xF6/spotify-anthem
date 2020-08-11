@@ -10,8 +10,8 @@ window.harsomtus = {
         if (!config)
             config = {};
         if (!config.origin)
-            //config.origin = 'https://spotify.0xf6.moe';
-            config.origin = 'https://localhost:12904';
+            config.origin = 'https://spotify.0xf6.moe';
+            //config.origin = 'https://localhost:12904';
         if (!config.apiKey)
             throw new Error('api key is not set.');
         if (!config.containerId)
